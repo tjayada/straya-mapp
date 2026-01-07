@@ -25,13 +25,6 @@ This project consists of two main components:
     *   **Online Mode**: Authenticates users via Supabase and loads assets from Supabase Storage.
 
 
-## Showcase
-
-<div align="center">
-
-<img src="images/demo-1.gif" alt="" height="300" />
- 
-<div align="left">
 
 ## Screenshots
 
