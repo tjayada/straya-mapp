@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Straya Mapp - Photo Locations</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+          crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+          crossorigin=""/>
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="login" class="login-container">
+        <div class="login-box">
+            <h1 class="site-title">Your Straya Mapp</h1>
+            <form id="loginForm">
+                <input type="password" id="password" placeholder="Password" required autofocus>
+                <button type="submit" id="loginBtn">Login</button>
+            </form>
+            <div id="loginError" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Map Content (hidden until authenticated) -->
+    <div id="map-content" style="display: none;">
+        <div id="map"></div>
+        
+        <!-- Logout button -->
+        <button id="logoutBtn" class="logout-btn" onclick="handleLogout()" title="Logout">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+            </svg>
+        </button>
+
+        <!-- Video-player-style controls at bottom center -->
+        <div class="video-controls">
+            <button id="playPauseBtn" class="control-btn play-pause-btn" aria-label="Play">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    
+    <!-- Leaflet MarkerCluster JS -->
+     <!-- Creates clusters out of close markers -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            crossorigin=""></script>
+    <!-- Leaflet SmoothWheelZoom Plugin -->
+    <!-- Provides smooth zoom UX -->
+    <script src="https://cdn.jsdelivr.net/gh/mutsuyuki/Leaflet.SmoothWheelZoom@master/SmoothWheelZoom.js"
+            crossorigin=""></script>
+    
+    <!-- Leaflet.MovingMarker Plugin -->
+    <!-- Animates marker along polyline -->
+    <script src="https://cdn.jsdelivr.net/gh/ewoken/Leaflet.MovingMarker@master/MovingMarker.js"
+            crossorigin=""></script>
+    
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // The CDN exposes supabase globally, destructure createClient from it
+        if (typeof supabase !== 'undefined') {
+            try {
+                const { createClient } = supabase;
+                // Make createClient globally available for convenience
+                window.supabaseCreateClient = createClient;
+            } catch (e) {
+                // Silently handle initialization errors - main.js will handle error reporting
+            }
+        }
+    </script>
+    
+    <!-- Application JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

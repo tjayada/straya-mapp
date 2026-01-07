@@ -1,0 +1,12 @@
+{
+    "library_path": "/path/to/your/Photos.photoslibrary",
+    "start_date": "2016-10-01",
+    "end_date": "2018-02-01",
+    "export_path": "frontend/web_export",
+    "model_batch_size": 8,
+    "only_use_webp": true,
+    "deduplication_threshold": 8,
+    "deduplication_hash_size": 8,
+    "deduplication_delete": true
+}
+

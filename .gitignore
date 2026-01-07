@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Cache and data files
+offers_cache.json
+brochures_cache.json
+offers.json
+brochures.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment variables
+.env
+.env.local
+.env.*
+!.env.example
+
+# Configuration files
+config.json
+
+# Generated/exported data
+web_export/
+frontend/web_export/
+failed_uploads.json
+image_data_supabase.json
+
+# Logs
+*.log
+osxphotos_crash.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup

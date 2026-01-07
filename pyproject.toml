@@ -1,0 +1,16 @@
+[project]
+name = "straya-mapp"
+version = "0.1.0"
+description = "An interactive travel photo map with an automated preprocessing pipeline to curate, score, and display your images."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aesthetic-predictor-v2-5>=2024.12.18.1",
+    "osxphotos>=0.74.2",
+    "torch>=2.0.0",
+    "pillow>=10.0.0",
+    "matplotlib>=3.0.0",
+    "tqdm>=4.66.0",
+    "imagehash>=4.3.1",
+    "supabase>=2.0.0",
+]
